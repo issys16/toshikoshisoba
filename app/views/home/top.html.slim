@@ -1,0 +1,20 @@
+main#top
+  h1.wf-sawarabimincho
+    span.nadai 名代
+    br
+    span.title 年越しそばきめったー
+
+  section
+    p 平成最後の年越しそば。至高の一杯をチョイスします。(富士そば)
+    label.open_button for="trigger" 決める
+
+div.modal_wrap
+  input#trigger type="checkbox"
+  div.modal_overlay
+    label.modal_trigger for="trigger"
+    div.modal_content
+      label.close_button for="trigger" ✖️
+      h2 あなたに送る一杯
+      p#result = @result
+      a.twitter-share-button href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-text="今年は「#{@result}」食べます #年越しそばきめったー" data-lang="ja" data-dnt="true" data-show-count="false" Tweet
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

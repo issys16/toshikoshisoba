@@ -1,0 +1,158 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.wf-sawarabimincho {
+  font-family: "Sawarabi Mincho";
+}
+
+main#top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+main#top h1, main#top p {
+  margin: 5px;
+}
+
+main#top h1 span.nadai {
+  color: #FD3834;
+  letter-spacing: 5px;
+  user-select: none;
+  animation: nadai 1s both cubic-bezier(0.68, -0.55, 0.265, 1.55) .5s;
+  margin: 0px;
+  padding: 0px;
+  font-size: 30px;
+}
+
+main#top h1 span.title {
+  font-size: 40px;
+  letter-spacing: 5px;
+  user-select: none;
+  animation: nadai 1s both cubic-bezier(0.68, -0.55, 0.265, 1.55) 1.5s
+}
+
+main#top section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: nadai 1s both cubic-bezier(0.68, -0.55, 0.265, 1.55) 2.5s
+}
+
+.open_button{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	height: 30px;
+	margin: 20px;
+	padding: 8px 16px;
+	color: #444;
+	font-weight: bold;
+	font-family: 'Montserrat', sans-serif;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+	border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.open_button:hover{
+  color: #fff;
+  background-color: #444;
+}
+
+/* keyframes */
+@keyframes nadai {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.modal_wrap input{
+	display: none;
+}
+
+.modal_overlay{
+	display: flex;
+	justify-content: center;
+	overflow: auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.7);
+	opacity: 0;
+	transition: opacity 0.5s, transform 0s 0.5s;
+	transform: scale(0);
+}
+
+.modal_trigger{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.modal_content{
+	align-self: center;
+	width: 60%;
+	max-width: 800px;
+	padding: 30px 30px 15px;
+	box-sizing: border-box;
+	background: #fff;
+	line-height: 1.4em;
+	transform: scale(0.5) rotateX(-270deg);
+	transition: 0.5s;
+	text-align: center;
+}
+
+.close_button{
+	position: absolute;
+	top: 14px;
+	right: 16px;
+	font-size: 24px;
+	cursor: pointer;
+}
+
+.modal_wrap input:checked ~ .modal_overlay{
+	opacity: 1;
+	transform: scale(1);
+	transition: opacity 0.5s;
+}
+
+.modal_wrap input:checked ~ .modal_overlay .modal_content{
+	transform: scale(1) rotateX(0deg);
+}
+
+.modal_content h2 {
+  text-align: center;
+  font-family: "Sawarabi Mincho";
+  font-size: 20px;
+}
+
+.modal_content p {
+  text-align: center;
+  font-family: "Sawarabi Mincho";
+  font-size: 40px;
+  color: #444;
+}
